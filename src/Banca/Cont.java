@@ -5,13 +5,17 @@ import java.util.*;
 public abstract class Cont {
     private String IBAN, valuta;
     private Double sold_disponibil, sold_blocat;
+    private String type;
 
     private Set<Card> carduri = new HashSet<Card>();
+
+    public abstract String extragere_suma(Integer suma);
+
     // private List<Tranzactie> tranzactii = new ArrayList<Tranzactie>();
 
     // private final CardFactory cardFactory = new CardFactory();
 
-    Cont(String valuta, Double sold_disponibil, Double sold_blocat, Double dobanda, Card card){
+    Cont(String valuta, Double sold_disponibil, Double sold_blocat){
         Random rand = new Random();
         int int_random = rand.nextInt(10);
         int int_random2 = 10000+rand.nextInt(90000);
@@ -23,10 +27,7 @@ public abstract class Cont {
         this.valuta = valuta;
         this.sold_disponibil = sold_disponibil;
         this.sold_blocat = sold_blocat;
-        this.carduri.add(card);
     }
-
-    public abstract String extragere_suma(Integer suma);
 
     public String adauga_suma(Double Suma){
         this.setSold_disponibil(this.getSold_disponibil() + Suma);
@@ -94,4 +95,11 @@ public abstract class Cont {
         this.carduri = carduri;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
