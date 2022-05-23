@@ -1,19 +1,18 @@
 package Model;
 
-public class Client {
+public class Client implements Comparable<Client> {
     private final int id_client;
-    private String nume, prenume, CNP;
+    private String nume, prenume;
     private String email, telefon;
-    private Adresa adresa;
+    //private Adresa adresa;
 
-    public Client(int id_client, String nume, String prenume, String email, String telefon, Adresa adresa) {
+    public Client(int id_client, String nume, String prenume, String email, String telefon) {
         this.id_client = id_client;
         this.nume = nume;
         this.prenume = prenume;
-        this.CNP = CNP;
         this.email = email;
         this.telefon = telefon;
-        this.adresa = adresa;
+        //this.adresa = adresa;
     }
 
     public int getId_client() {
@@ -36,35 +35,50 @@ public class Client {
         this.prenume = prenume;
     }
 
-    public String getCNP() {
-        return CNP;
-    }
-
-    public void setCNP(String CNP) {
-        this.CNP = CNP;
+    public void setEmail(String email) throws Exception {
+        if (!email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[A-Za-z]{3}$")) {
+            throw new Exception("Email invalid");
+        }
+        this.email = email;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(String telefon) {
+    public void setTelefon(String telefon) throws Exception {
+        if (!telefon.matches("^\\d{10}$")) {
+            throw new Exception("Telefon invalid");
+        }
         this.telefon = telefon;
     }
 
-    public Adresa getAdresa() {
-        return adresa;
+    @Override
+    public int compareTo(Client c) {
+        return Integer.compare(this.id_client, c.id_client);
     }
 
-    public void setAdresa(Adresa adresa) {
-        this.adresa = adresa;
+    // public Adresa getAdresa() {
+    //     return adresa;
+    // }
+
+    //public void setAdresa(Adresa adresa) {
+    //    this.adresa = adresa;
+    // }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id_client=" + id_client +
+                ", nume='" + nume + '\'' +
+                ", prenume='" + prenume + '\'' +
+                ", email='" + email + '\'' +
+                ", telefon='" + telefon + '\'' +
+                // ", adresa=" + adresa +
+                '}';
     }
 }

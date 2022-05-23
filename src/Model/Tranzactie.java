@@ -2,12 +2,14 @@ package Model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Tranzactie {
     private String data, detalii = "";
     final private String fromIBAN, toIBAN;
     private Integer suma_tranzactie;
     private Boolean decontare;
+    List<Integer> tranzactii;
 
     Tranzactie(String data, String fromIBAN, String toIBAN, String detalii, Integer suma_tranzactie, Boolean decontare){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

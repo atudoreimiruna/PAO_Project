@@ -8,5 +8,7 @@ public class Main {
 
         // afisare toate conturile
         System.out.println(ContService.getAllConts());
+
+        System.out.println(ClientService.getClient(1));
     }
 }
