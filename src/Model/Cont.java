@@ -1,13 +1,12 @@
 package Model;
 import java.util.*;
 
-public class Cont implements Comparator<Tranzactie> {
+public class Cont {
     protected Integer id;
     protected String valuta, swift, nume;
     protected Integer sold_disponibil, sold_blocat;
     protected String type;
-
-    private Set<Card> carduri = new HashSet<>();
+    private List<Card> cards = new ArrayList<>();
 
     // public abstract String extragere_suma(Integer suma);
 
@@ -40,7 +39,7 @@ public class Cont implements Comparator<Tranzactie> {
     public void adauga_card(Card c){
         try{
             if (!this.getCarduri().contains(c)) {
-                Set<Card> carduri = this.getCarduri();
+                List<Card> carduri = this.getCarduri();
                 carduri.add(c);
                 this.setCarduri(carduri);
             }
@@ -72,17 +71,17 @@ public class Cont implements Comparator<Tranzactie> {
         return swift;
     }
 
-    public List<Tranzactie> filtrare_tranzactii(List<Tranzactie> allTransactions){
-        List<Tranzactie> tranzactii = new ArrayList<>();
-        for(var tranzactie: allTransactions)
-            if(tranzactie.getFromIBAN().equals(this.id))
-                tranzactii.add(tranzactie);
-        return tranzactii;
-    }
+    // public List<Tranzactie> filtrare_tranzactii(List<Tranzactie> allTransactions){
+    //     List<Tranzactie> tranzactii = new ArrayList<>();
+    //     for(var tranzactie: allTransactions)
+    //         if(tranzactie.getFromIBAN().equals(this.id))
+    //             tranzactii.add(tranzactie);
+    //     return tranzactii;
+    // }
 
-    public int compare(Tranzactie tranzactie1, Tranzactie tranzactie2){
-        return tranzactie1.getData().compareTo(tranzactie2.getData());
-    }
+    // public int compare(Tranzactie tranzactie1, Tranzactie tranzactie2){
+    //     return tranzactie1.getData().compareTo(tranzactie2.getData());
+    // }
 
     /*
     public void adauga_tranzactie(Tranzactie t){
@@ -101,7 +100,7 @@ public class Cont implements Comparator<Tranzactie> {
                 ", sold_disponibil=" + sold_disponibil +
                 ", sold_blocat=" + sold_blocat +
                 ", type='" + type + '\'' +
-                ", carduri=" + carduri +
+                ", cards=" + cards +
                 '}';
     }
 
@@ -129,12 +128,12 @@ public class Cont implements Comparator<Tranzactie> {
         this.sold_blocat = sold_blocat;
     }
 
-    public Set<Card> getCarduri() {
-        return carduri;
+    public List<Card> getCarduri() {
+        return cards;
     }
 
-    public void setCarduri(Set<Card> carduri) {
-        this.carduri = carduri;
+    public void setCarduri(List<Card> carduri) {
+        this.cards = carduri;
     }
 
     public String getType() {

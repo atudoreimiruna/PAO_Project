@@ -10,13 +10,17 @@ public class CardEntity {
     private String valuta;
     private String IBAN;
     private Double comision = 0.0;
+    private Integer ownerId;
 
-    public CardEntity(Integer id, String nume) {
+    public CardEntity(Integer id, String IBAN, String nume, String prenume, Integer ownerId) {
         this.id = id;
+        this.IBAN = IBAN;
         this.nume = nume;
+        this.prenume = prenume;
+        this.ownerId = ownerId;
     }
 
-    public CardEntity(Integer id, Integer CVV, String data_expirare, String data_emitere, String nume, String numar_card, Integer pin, String valuta, String prenume, String IBAN, double comision) {
+    public CardEntity(Integer id, Integer CVV, String data_expirare, String data_emitere, String nume, String numar_card, Integer pin, String valuta, String prenume, String IBAN, double comision, Integer ownerId) {
         this.id = id;
         this.data_emitere = data_emitere;
         this.numar_card = numar_card;
@@ -28,6 +32,7 @@ public class CardEntity {
         this.prenume = prenume;
         this.IBAN = IBAN;
         this.comision = comision;
+        this.ownerId = ownerId;
     }
 
     public Integer getId() {
@@ -104,6 +109,14 @@ public class CardEntity {
 
     public void setComision(Double comision) {
         this.comision = comision;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 
     @Override

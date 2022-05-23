@@ -1,6 +1,6 @@
 package Service;
 
-import Entity.CardEntity;
+import Mapper.RowMapper;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,11 +16,11 @@ public class DatabaseQueryExecutorService {
     static final String USER = "amg";
     static final String PASS = "amg";
 
-    public static List<CardEntity> executeReadQuery() {
+    public static List<Object> executeReadQuery(String sql, RowMapper<?> rowMapper) {
 
             Connection conn = null;
             Statement stmt = null;
-            List<CardEntity> result = new ArrayList<>();
+            List<Object> result = new ArrayList<>();
             try {
                 // STEP 1: Register JDBC driver
                 Class.forName(JDBC_DRIVER);
@@ -32,19 +32,12 @@ public class DatabaseQueryExecutorService {
                 // STEP 3: Execute a query
                 System.out.println("Connected database successfully...");
                 stmt = conn.createStatement();
-                String sql = "SELECT * from Card";
                 ResultSet rs = stmt.executeQuery(sql);
 
                 // STEP 4: Extract data from result set
                 while (rs.next()) {
                     // Retrieve by column name
-                    int id = rs.getInt("id");
-                    String nume = rs.getString("nume");
-
-                    // Display values
-                    CardEntity cardEntity = new CardEntity(id, nume);
-                    result.add(cardEntity);
-
+                    result.add(rowMapper.mapRow(rs));
                 }
                 // STEP 5: Clean-up environment
                 rs.close();
