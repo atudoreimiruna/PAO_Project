@@ -1,29 +1,35 @@
-package Banca;
+package Model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Tranzactie implements Comparable<Tranzactie> {
+public class Tranzactie {
     private String data, detalii = "";
+    final private String fromIBAN, toIBAN;
     private Integer suma_tranzactie;
     private Boolean decontare;
 
-    Tranzactie(String data, String detalii, Integer suma_tranzactie, Boolean decontat){
+    Tranzactie(String data, String fromIBAN, String toIBAN, String detalii, Integer suma_tranzactie, Boolean decontare){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date(System.currentTimeMillis());
+        this.fromIBAN = fromIBAN;
+        this.toIBAN = toIBAN;
         this.data = formatter.format(date);
         this.detalii = detalii;
         this.suma_tranzactie = suma_tranzactie;
         this.decontare = decontare;
     }
 
-    @Override
-    public int compareTo(Tranzactie t){
-        return this.data.compareTo(t.getData());
-    }
-
     public String get_tranzactie(){
         return "Data:" + this.getData() + "\n" + "Suma:" + String.valueOf(this.getSuma_tranzactie()) + "\n" + this.getDetalii();
+    }
+
+    public String getFromIBAN() {
+        return fromIBAN;
+    }
+
+    public String getToIBAN() {
+        return toIBAN;
     }
 
     public String getData() {

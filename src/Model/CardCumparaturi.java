@@ -1,6 +1,6 @@
-package Card;
+package Model;
 
-public class CardCumparaturi extends Card{
+public class CardCumparaturi extends Card {
     protected
     Integer dobanda;
     Integer suma_minima_plata;

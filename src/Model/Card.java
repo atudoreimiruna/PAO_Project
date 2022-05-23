@@ -1,8 +1,7 @@
-package Card;
+package Model;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.nio.charset.StandardCharsets;
 
 public class Card {
     private final Integer id, CVV;
@@ -14,13 +13,12 @@ public class Card {
     private String valuta;
     private String IBAN;
     private Double comision = 0.0;
-    private Boolean contactless;
 
     static private final Set<String> Numere = new HashSet<>();
 
-    Card(Integer id, String IBAN, String nume, String prenume){
+    public Card(Integer id, String IBAN, String nume, String prenume){
         this.id = id;
-        this.IBAN = IBAN;
+        this.IBAN = this.generare_IBAN(id);
         this.nume = nume;
         this.prenume = prenume;
 
@@ -42,10 +40,25 @@ public class Card {
         this.CVV = this.generare_CVV();
     }
 
+    private String generare_IBAN(int id){
+        Random rand = new Random();
+        int int_random = rand.nextInt(100);
+        int int_random2 = 1000+rand.nextInt(9000);
+        int int_random3 = 1000+rand.nextInt(9000);
+        int int_random4 = 1000+rand.nextInt(9000);
+        int int_random5 = 1000+rand.nextInt(9000);
+
+        String iban = String.format("RO" + int_random + " BREL " + int_random2 + " " + int_random3 + " " + int_random4 + " " + int_random5);
+        return iban;
+    }
+
     private String generare_numar_card(){
-        byte[] array = new byte[16];
-        new Random().nextBytes(array);
-        return new String(array, StandardCharsets.UTF_8);
+        Random rand = new Random();
+        int int_random = 1000+rand.nextInt(9000);
+        int int_random1 = 1000+rand.nextInt(9000);
+
+        String numar = String.format("RO " + int_random + " " + int_random1);
+        return numar;
     }
 
     private int generare_CVV(){
@@ -123,5 +136,22 @@ public class Card {
 
     public void setComision(Double comision) {
         this.comision = comision;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id=" + id +
+                ", CVV=" + CVV +
+                ", data_expirare='" + data_expirare + '\'' +
+                ", data_emitere='" + data_emitere + '\'' +
+                ", nume='" + nume + '\'' +
+                ", prenume='" + prenume + '\'' +
+                ", numar_card='" + numar_card + '\'' +
+                ", pin=" + pin +
+                ", valuta='" + valuta + '\'' +
+                ", IBAN='" + IBAN + '\'' +
+                ", comision=" + comision +
+                '}';
     }
 }
