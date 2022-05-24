@@ -4,7 +4,8 @@ import Entity.CardEntity;
 import Model.Card;
 import Repository.CardRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CardService {
 

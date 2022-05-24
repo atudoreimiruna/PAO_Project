@@ -53,9 +53,8 @@ public class DatabaseQueryExecutorService {
             return result;
     }
 
-    /**
-     * Used for INSERT, UPDATE, DELETE sql queries
-     */
+     // for INSERT, UPDATE, DELETE sql queries
+
     public static Integer executeUpdateQuery(String sql) {
         Connection conn = null;
         Statement stmt = null;

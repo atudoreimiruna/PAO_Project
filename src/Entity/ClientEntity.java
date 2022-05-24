@@ -1,13 +1,14 @@
 package Entity;
 
-import Model.*;
+import Model.Adresa;
+import Model.Cont;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientEntity {
 
-    private final int id_client;
+    private int id_client;
     private String nume, prenume;
     private String telefon;
     // private Adresa adresa;
@@ -22,6 +23,11 @@ public class ClientEntity {
         this.telefon = telefon;
         // this.email = email;
         // this.adresa = adresa;
+    }
+
+    public ClientEntity()
+    {
+
     }
 
     public ClientEntity(int id_client, String nume)

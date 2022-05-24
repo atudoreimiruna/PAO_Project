@@ -1,11 +1,12 @@
 package Model;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 public class Card {
-    private final Integer id, CVV;
-    private final String data_expirare;
+    private Integer id, CVV;
+    private String data_expirare;
     private String data_emitere;
     private String numar_card;
     private Integer pin;
@@ -15,11 +16,30 @@ public class Card {
 
     static private final Set<String> Numere = new HashSet<>();
 
+    public Card(Integer id, Integer CVV, String data_expirare, String data_emitere, String numar_card, Integer pin, String valuta, String IBAN, double comision) {
+        this.id = id;
+        this.data_emitere = data_emitere;
+        this.numar_card = numar_card;
+        this.pin = pin;
+        this.valuta = valuta;
+        this.CVV = CVV;
+        this.data_expirare = data_expirare;
+        // this.nume = nume;
+        // this.prenume = prenume;
+        this.IBAN = IBAN;
+        this.comision = comision;
+    }
+
     public Card(Integer id, String IBAN){
         this.id = id;
-        this.IBAN = this.generare_IBAN(id);
+        this.IBAN = IBAN;
+}
 
-        // Generare data emitere si data expirare card
+    public Card() {
+
+    }
+    // Generare data emitere si data expirare card
+        /*
         SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-DD");
         Date date = new Date(System.currentTimeMillis());;
         this.data_emitere = formatter.format(date);
@@ -27,15 +47,18 @@ public class Card {
         c.setTime(date);
         c.add(Calendar.YEAR,4);
         this.data_expirare = formatter.format(c.getTime());
-
+        */
         // Generare numar card
+        /*
         while(Numere.contains(this.numar_card))
             this.numar_card = this.generare_numar_card();
         Numere.add(this.numar_card);
-
+        */
         // Generate CVV
+        /*
         this.CVV = this.generare_CVV();
-    }
+        */
+
 
     private String generare_IBAN(int id){
         Random rand = new Random();
@@ -92,6 +115,11 @@ public class Card {
     }
 
     public void setNumar_card(String numar_card) {
+        Random rand = new Random();
+        int int_random = 1000+rand.nextInt(9000);
+        int int_random1 = 1000+rand.nextInt(9000);
+
+        numar_card = String.format("RO " + int_random + " " + int_random1);
         this.numar_card = numar_card;
     }
 
@@ -108,6 +136,14 @@ public class Card {
     }
 
     public void setIBAN(String IBAN) {
+        Random rand = new Random();
+        int int_random = rand.nextInt(100);
+        int int_random2 = 1000+rand.nextInt(9000);
+        int int_random3 = 1000+rand.nextInt(9000);
+        int int_random4 = 1000+rand.nextInt(9000);
+        int int_random5 = 1000+rand.nextInt(9000);
+
+        IBAN = String.format("RO" + int_random + " BREL " + int_random2 + " " + int_random3 + " " + int_random4 + " " + int_random5);
         this.IBAN = IBAN;
     }
 

@@ -1,16 +1,25 @@
-package Model;
+package Entity;
 
-public class CardCumparaturi extends Card {
+public class CardCumparaturiEntity extends CardEntity{
     protected
     Integer dobanda;
     Integer suma_minima_plata;
     Integer suma_maxima_adaugare;
 
-    CardCumparaturi(Integer dobanda, Integer suma_maxima_adaugare, Integer suma_minima_plata){
+    public CardCumparaturiEntity(Integer dobanda, Integer suma_maxima_adaugare, Integer suma_minima_plata){
         super();
         this.dobanda = dobanda;
         this.suma_maxima_adaugare =suma_maxima_adaugare;
         this.suma_minima_plata = suma_minima_plata;
+    }
+
+    @Override
+    public String toString() {
+        return "CardCumparaturiEntity{" +
+                "dobanda=" + dobanda +
+                ", suma_minima_plata=" + suma_minima_plata +
+                ", suma_maxima_adaugare=" + suma_maxima_adaugare +
+                '}';
     }
 
     public Integer getDobanda() {

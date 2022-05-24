@@ -4,10 +4,11 @@ public class ContEconomii extends Cont {
     private Integer limita = 10000000;
     Integer valoare_minima = 500;
 
-    ContEconomii(String nume, Integer id, Integer valoare_minima){
-        super(id);
+    ContEconomii(Integer valoare_minima, Integer limita){
+        super();
         this.setType("Economies");
         this.valoare_minima = valoare_minima;
+        this.limita = limita;
     }
 
     public String adaugare_bani(Integer Suma) {

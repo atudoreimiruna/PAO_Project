@@ -13,6 +13,7 @@ public class ContEntity {
         private Integer ownerId_cont;
         private List<Card> cards = new ArrayList<>();
 
+
     public ContEntity( Integer id, Integer ownerId_cont)
     {
         // this.nume= nume;

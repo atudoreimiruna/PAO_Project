@@ -1,14 +1,19 @@
 package Service;
-import Repository.*;
-import Entity.*;
-import Model.*;
-import java.util.*;
+
+import Entity.ClientEntity;
+import Model.Client;
+import Repository.ClientRepository;
+
+import java.util.List;
 
 public class ClientService {
     public static void delete(int id_client){
         ClientRepository.delete(id_client);
-        // String mesaj = String.format("Clientul cu id-ul " + id_client + " a fost sters cu succes!");
-        // System.out.println(mesaj);
+    }
+
+    public static void updateClient(Client client, int id_client)
+    {
+        ClientRepository.update(client, id_client);
     }
 
     public static Client getClient(int id_client){
@@ -30,5 +35,9 @@ public class ClientService {
                 .stream()
                 .map(c -> new Client(c.getId_client(), c.getNume(), c.getPrenume(), c.getTelefon()))
                 .toList();
+    }
+
+    public static void modificaTelefon(Client client){
+        ClientRepository.updateTelefon(client.getId_client(), client.getTelefon());
     }
 }
