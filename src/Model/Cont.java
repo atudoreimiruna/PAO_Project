@@ -8,6 +8,7 @@ public class Cont {
     protected String type;
     private List<Card> cards = new ArrayList<>();
 
+
     // public abstract String extragere_suma(Integer suma);
 
     // private List<Tranzactie> tranzactii = new ArrayList<Tranzactie>();
@@ -23,6 +24,10 @@ public class Cont {
         this.type = type;
     }
 
+    public Cont()
+    {
+
+    }
     public Cont(String nume, Integer id) {
         this.nume = nume;
         // this.IBAN = this.generare_IBAN(id);

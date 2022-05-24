@@ -1,18 +1,25 @@
 package Entity;
 
+import Model.Cont;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClientEntity {
 
     private final int id_client;
     private String nume, prenume;
-    private String email, telefon;
+    private String telefon;
     // private Adresa adresa;
+    private List<Cont> conts = new ArrayList<>();
 
-    public ClientEntity(int id_client, String nume, String prenume, String email, String telefon) {
+
+    public ClientEntity(int id_client, String nume, String prenume,  String telefon) {
         this.id_client = id_client;
         this.nume = nume;
         this.prenume = prenume;
-        this.email = email;
         this.telefon = telefon;
+        // this.email = email;
         // this.adresa = adresa;
     }
 
@@ -42,13 +49,13 @@ public class ClientEntity {
         this.prenume = prenume;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    // public String getEmail() {
+    //    return email;
+    //}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+   // public void setEmail(String email) {
+    //    this.email = email;
+    //}
 
     public String getTelefon() {
         return telefon;

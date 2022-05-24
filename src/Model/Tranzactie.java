@@ -8,10 +8,9 @@ public class Tranzactie {
     private String data, detalii = "";
     final private String fromIBAN, toIBAN;
     private Integer suma_tranzactie;
-    private Boolean decontare;
     List<Integer> tranzactii;
 
-    Tranzactie(String data, String fromIBAN, String toIBAN, String detalii, Integer suma_tranzactie, Boolean decontare){
+    Tranzactie(String data, String fromIBAN, String toIBAN, String detalii, Integer suma_tranzactie){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date(System.currentTimeMillis());
         this.fromIBAN = fromIBAN;
@@ -19,7 +18,6 @@ public class Tranzactie {
         this.data = formatter.format(date);
         this.detalii = detalii;
         this.suma_tranzactie = suma_tranzactie;
-        this.decontare = decontare;
     }
 
     public String get_tranzactie(){
@@ -58,11 +56,4 @@ public class Tranzactie {
         this.suma_tranzactie = suma_tranzactie;
     }
 
-    public Boolean getDecontare() {
-        return decontare;
-    }
-
-    public void setDecontare(Boolean decontare) {
-        this.decontare = decontare;
-    }
 }

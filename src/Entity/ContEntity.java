@@ -10,17 +10,22 @@ public class ContEntity {
         protected String valuta, swift, nume;
         protected Integer sold_disponibil, sold_blocat;
         protected String type;
-        // private Integer ownerId;
+        private Integer ownerId_cont;
         private List<Card> cards = new ArrayList<>();
 
-    public ContEntity( String nume, Integer id)
+    public ContEntity( String nume, Integer id, Integer ownerId_cont)
     {
         this.nume= nume;
         this.id = id;
-        // this.ownerId = ownerId;
+        this.ownerId_cont = ownerId_cont;
     }
 
-    public ContEntity( Integer id, String nume, String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type, List<Card> cards){
+    public ContEntity()
+    {
+
+    }
+
+    public ContEntity( Integer id, String nume, String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type, List<Card> cards, Integer ownerId_cont){
         this.swift = swift;
         this.nume= nume;
         this.valuta = valuta;
@@ -29,7 +34,7 @@ public class ContEntity {
         this.type = type;
         this.id = id;
         this.cards = cards;
-        // this.ownerId = ownerId;
+        this.ownerId_cont = ownerId_cont;
     }
 
     public Integer getId() {
@@ -94,5 +99,13 @@ public class ContEntity {
 
     public void setCards(List<Card> cards) {
         this.cards = cards;
+    }
+
+    public Integer getOwnerId_cont() {
+        return ownerId_cont;
+    }
+
+    public void setOwnerId_cont(Integer ownerId_cont) {
+        this.ownerId_cont = ownerId_cont;
     }
 }

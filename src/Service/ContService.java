@@ -21,4 +21,15 @@ public class ContService {
         }
         return result;
     }
+
+    public static List<Cont> getAllContsForOwner(int ownerId_cont)
+    {
+        List<ContEntity> contEntity = ContRepository.findAllForOwner(ownerId_cont);
+        List<Cont> result = new ArrayList<>();
+
+        for( ContEntity contEntity1: contEntity) {
+            result.add(new Cont(contEntity1.getNume(), contEntity1.getId()));
+        }
+        return result;
+    }
 }

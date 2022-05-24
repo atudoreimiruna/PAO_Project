@@ -9,7 +9,8 @@ public class ContEntityMapper implements RowMapper<ContEntity> {
     public ContEntity mapRow(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");
         String nume = resultSet.getString("nume");
+        int ownerId_cont = resultSet.getInt("ownerId_cont");
 
-        return new ContEntity(nume, id);
+        return new ContEntity(nume, id, ownerId_cont);
     }
 }

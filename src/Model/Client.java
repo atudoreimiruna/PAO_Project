@@ -1,18 +1,24 @@
 package Model;
 
 public class Client implements Comparable<Client> {
-    private final int id_client;
+    private int id_client;
     private String nume, prenume;
-    private String email, telefon;
+    private String telefon;
     //private Adresa adresa;
 
-    public Client(int id_client, String nume, String prenume, String email, String telefon) {
+
+    public Client(int id_client, String nume, String prenume, String telefon) {
         this.id_client = id_client;
         this.nume = nume;
         this.prenume = prenume;
-        this.email = email;
         this.telefon = telefon;
+        // this.email = email;
         //this.adresa = adresa;
+    }
+
+    public Client()
+    {
+
     }
 
     public int getId_client() {
@@ -35,16 +41,20 @@ public class Client implements Comparable<Client> {
         this.prenume = prenume;
     }
 
+    /*
     public void setEmail(String email) throws Exception {
-        if (!email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[A-Za-z]{3}$")) {
+        if (!email.matches("^[a-z]+@[a-z]+\\.[a-z]{3}$")) {
             throw new Exception("Email invalid");
         }
         this.email = email;
     }
+     */
 
+    /*
     public String getEmail() {
         return email;
     }
+    */
 
     public String getTelefon() {
         return telefon;
@@ -76,7 +86,6 @@ public class Client implements Comparable<Client> {
                 "id_client=" + id_client +
                 ", nume='" + nume + '\'' +
                 ", prenume='" + prenume + '\'' +
-                ", email='" + email + '\'' +
                 ", telefon='" + telefon + '\'' +
                 // ", adresa=" + adresa +
                 '}';
