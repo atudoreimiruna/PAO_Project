@@ -5,7 +5,7 @@ public class ContEconomii extends Cont {
     Integer valoare_minima = 500;
 
     ContEconomii(String nume, Integer id, Integer valoare_minima){
-        super(nume, id);
+        super(id);
         this.setType("Economies");
         this.valoare_minima = valoare_minima;
     }
@@ -31,7 +31,6 @@ public class ContEconomii extends Cont {
         return "ContEconomii{" +
                 "swift='" + swift + '\'' +
                 ", limita=" + limita +
-                ", nume='" + nume + '\'' +
                 ", id=" + id +
                 ", valoare_minima=" + valoare_minima +
                 ", sold_disponibil=" + sold_disponibil +

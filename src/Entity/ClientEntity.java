@@ -1,6 +1,6 @@
 package Entity;
 
-import Model.Cont;
+import Model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,7 @@ public class ClientEntity {
     private String telefon;
     // private Adresa adresa;
     private List<Cont> conts = new ArrayList<>();
+    private List<Adresa> adrese = new ArrayList<>();
 
 
     public ClientEntity(int id_client, String nume, String prenume,  String telefon) {
@@ -65,4 +66,19 @@ public class ClientEntity {
         this.telefon = telefon;
     }
 
+    public List<Cont> getConts() {
+        return conts;
+    }
+
+    public void setConts(List<Cont> conts) {
+        this.conts = conts;
+    }
+
+    public List<Adresa> getAdrese() {
+        return adrese;
+    }
+
+    public void setAdrese(List<Adresa> adrese) {
+        this.adrese = adrese;
+    }
 }

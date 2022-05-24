@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Cont {
     protected Integer id;
-    protected String valuta, swift, nume;
+    protected String valuta, swift;
     protected Integer sold_disponibil, sold_blocat;
     protected String type;
     private List<Card> cards = new ArrayList<>();
@@ -15,9 +15,8 @@ public class Cont {
 
     // private final CardFactory cardFactory = new CardFactory();
 
-    public Cont( String nume, String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type){
+    public Cont(String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type){
         this.swift = swift;
-        this.nume= nume;
         this.valuta = valuta;
         this.sold_disponibil = sold_disponibil;
         this.sold_blocat = sold_blocat;
@@ -28,8 +27,7 @@ public class Cont {
     {
 
     }
-    public Cont(String nume, Integer id) {
-        this.nume = nume;
+    public Cont( Integer id) {
         // this.IBAN = this.generare_IBAN(id);
         this.swift = this.generare_Swift();
         this.sold_disponibil = 0;
@@ -101,11 +99,9 @@ public class Cont {
         return "Cont{" +
                 "valuta='" + valuta + '\'' +
                 ", swift='" + swift + '\'' +
-                ", nume='" + nume + '\'' +
                 ", sold_disponibil=" + sold_disponibil +
                 ", sold_blocat=" + sold_blocat +
                 ", type='" + type + '\'' +
-                ", cards=" + cards +
                 '}';
     }
 

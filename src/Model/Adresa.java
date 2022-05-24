@@ -1,24 +1,35 @@
 package Model;
 
 public class Adresa {
+    private Integer id_adresa;
     private String strada, oras, tara;
     private Integer cod_postal;
 
-    public Adresa(String strada, String oras, String tara, int cos_postal) {
+    public Adresa(Integer id_adresa, String strada, String oras, String tara, Integer cod_postal) {
+        this.id_adresa = id_adresa;
         this.strada = strada;
         this.oras = oras;
         this.tara = tara;
-        this.cod_postal = cos_postal;
+        this.cod_postal = cod_postal;
     }
 
     @Override
     public String toString() {
         return "Adresa{" +
-                "strada='" + strada + '\'' +
+                "id_adresa=" + id_adresa +
+                ", strada='" + strada + '\'' +
                 ", oras='" + oras + '\'' +
                 ", tara='" + tara + '\'' +
                 ", cod_postal=" + cod_postal +
                 '}';
+    }
+
+    public Integer getId_adresa() {
+        return id_adresa;
+    }
+
+    public void setId_adresa(Integer id_adresa) {
+        this.id_adresa = id_adresa;
     }
 
     public String getStrada() {

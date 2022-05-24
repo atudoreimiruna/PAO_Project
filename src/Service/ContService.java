@@ -14,7 +14,7 @@ public class ContService {
         List<Cont> result = new ArrayList<>();
 
         for( ContEntity contEntity1: contEntity) {
-            Cont cont = new Cont(contEntity1.getNume(), contEntity1.getId());
+            Cont cont = new Cont( contEntity1.getId());
             List<Card> cards = CardService.getAllCardsForOwner(contEntity1.getId());
             cont.setCarduri(cards);
             result.add(cont);
@@ -28,7 +28,7 @@ public class ContService {
         List<Cont> result = new ArrayList<>();
 
         for( ContEntity contEntity1: contEntity) {
-            result.add(new Cont(contEntity1.getNume(), contEntity1.getId()));
+            result.add(new Cont(contEntity1.getId()));
         }
         return result;
     }

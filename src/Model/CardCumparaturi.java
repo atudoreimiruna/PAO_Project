@@ -7,7 +7,7 @@ public class CardCumparaturi extends Card {
     Integer suma_maxima_adaugare;
 
     CardCumparaturi(Integer id, String IBAN, String nume, String prenume){
-        super(id, IBAN, nume, prenume);
+        super(id, IBAN);
     }
 
     public Integer getDobanda() {

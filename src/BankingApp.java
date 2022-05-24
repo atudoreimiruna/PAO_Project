@@ -1,4 +1,4 @@
-import Entity.ContEntity;
+import Entity.*;
 import Model.Client;
 import Service.*;
 
@@ -18,6 +18,8 @@ public class BankingApp {
                 "Sterge client",
                 "Afisare clienti",
                 "Afisare conturi client",
+                "Afisare carduri cont",
+                "Afisare adrese client",
                 "Exit"
         ));
     }
@@ -31,6 +33,8 @@ public class BankingApp {
                 case "sterge_client" -> this.stergeClient();
                 case "afisare_clienti" -> this.afisareClienti();
                 case "afisare_conturi_client" -> this.afisareConturiClient();
+                case "afisare_carduri_cont" -> this.afisareCarduriCont();
+                case "afisare_adrese_client" -> this.afisareAdreseClient();
             }
             opt = this.meniuPrincipal.show();
         }
@@ -51,6 +55,34 @@ public class BankingApp {
             System.out.print("OwnerId Client: ");
             cont.setOwnerId_cont(scanner.nextInt());
             System.out.println(ContService.getAllContsForOwner(cont.getOwnerId_cont()));
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void afisareCarduriCont() {
+        CardEntity card = new CardEntity();
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("OwnerId Cont: ");
+            card.setOwnerId(scanner.nextInt());
+            System.out.println(CardService.getAllCardsForOwner(card.getOwnerId()));
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void afisareAdreseClient() {
+        AdresaEntity adresa = new AdresaEntity();
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("OwnerId Client: ");
+            adresa.setOwnerId_adresa(scanner.nextInt());
+            System.out.println(AdresaService.getAllAddressesForOwner(adresa.getOwnerId_adresa()));
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -93,7 +125,7 @@ public class BankingApp {
                 throw new Exception("Clientul nu exista");
             }
             ClientService.delete(id);
-            System.out.println("\nOK");
+            System.out.println("\nClientul a fost sters!");
         } catch (InputMismatchException e) {
             System.out.println("ID invalid");
         } catch (Exception e) {

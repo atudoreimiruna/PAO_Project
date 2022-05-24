@@ -7,7 +7,6 @@ public class Card {
     private final Integer id, CVV;
     private final String data_expirare;
     private String data_emitere;
-    private String nume, prenume;
     private String numar_card;
     private Integer pin;
     private String valuta;
@@ -16,11 +15,9 @@ public class Card {
 
     static private final Set<String> Numere = new HashSet<>();
 
-    public Card(Integer id, String IBAN, String nume, String prenume){
+    public Card(Integer id, String IBAN){
         this.id = id;
         this.IBAN = this.generare_IBAN(id);
-        this.nume = nume;
-        this.prenume = prenume;
 
         // Generare data emitere si data expirare card
         SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-DD");
@@ -78,22 +75,6 @@ public class Card {
         this.pin = pin;
     }
 
-    public String getNume() {
-        return nume;
-    }
-
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
-    public String getPrenume() {
-        return prenume;
-    }
-
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
-    }
-
     public String getData_emitere() {
         return data_emitere;
     }
@@ -145,8 +126,6 @@ public class Card {
                 ", CVV=" + CVV +
                 ", data_expirare='" + data_expirare + '\'' +
                 ", data_emitere='" + data_emitere + '\'' +
-                ", nume='" + nume + '\'' +
-                ", prenume='" + prenume + '\'' +
                 ", numar_card='" + numar_card + '\'' +
                 ", pin=" + pin +
                 ", valuta='" + valuta + '\'' +

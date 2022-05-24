@@ -7,15 +7,15 @@ import java.util.List;
 
 public class ContEntity {
         protected Integer id;
-        protected String valuta, swift, nume;
+        protected String valuta, swift;
         protected Integer sold_disponibil, sold_blocat;
         protected String type;
         private Integer ownerId_cont;
         private List<Card> cards = new ArrayList<>();
 
-    public ContEntity( String nume, Integer id, Integer ownerId_cont)
+    public ContEntity( Integer id, Integer ownerId_cont)
     {
-        this.nume= nume;
+        // this.nume= nume;
         this.id = id;
         this.ownerId_cont = ownerId_cont;
     }
@@ -25,15 +25,15 @@ public class ContEntity {
 
     }
 
-    public ContEntity( Integer id, String nume, String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type, List<Card> cards, Integer ownerId_cont){
+    public ContEntity( Integer id, String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type, Integer ownerId_cont){
         this.swift = swift;
-        this.nume= nume;
+        // this.nume= nume;
         this.valuta = valuta;
         this.sold_disponibil = sold_disponibil;
         this.sold_blocat = sold_blocat;
         this.type = type;
         this.id = id;
-        this.cards = cards;
+        // this.cards = cards;
         this.ownerId_cont = ownerId_cont;
     }
 
@@ -59,14 +59,6 @@ public class ContEntity {
 
     public void setSwift(String swift) {
         this.swift = swift;
-    }
-
-    public String getNume() {
-        return nume;
-    }
-
-    public void setNume(String nume) {
-        this.nume = nume;
     }
 
     public Integer getSold_disponibil() {
@@ -108,4 +100,6 @@ public class ContEntity {
     public void setOwnerId_cont(Integer ownerId_cont) {
         this.ownerId_cont = ownerId_cont;
     }
+
+
 }

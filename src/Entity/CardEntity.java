@@ -4,7 +4,7 @@ public class CardEntity {
     private Integer id, CVV ;
     private String data_expirare;
     private String data_emitere;
-    private String nume, prenume;
+    // private String nume, prenume;
     private String numar_card;
     private Integer pin;
     private String valuta;
@@ -12,15 +12,19 @@ public class CardEntity {
     private Double comision = 0.0;
     private Integer ownerId;
 
-    public CardEntity(Integer id, String IBAN, String nume, String prenume, Integer ownerId) {
+    public CardEntity(Integer id, String IBAN, Integer ownerId) {
         this.id = id;
         this.IBAN = IBAN;
-        this.nume = nume;
-        this.prenume = prenume;
+        // this.nume = nume;
+        // this.prenume = prenume;
         this.ownerId = ownerId;
     }
 
-    public CardEntity(Integer id, Integer CVV, String data_expirare, String data_emitere, String nume, String numar_card, Integer pin, String valuta, String prenume, String IBAN, double comision, Integer ownerId) {
+    public CardEntity() {
+
+    }
+
+    public CardEntity(Integer id, Integer CVV, String data_expirare, String data_emitere, String numar_card, Integer pin, String valuta, String IBAN, double comision, Integer ownerId) {
         this.id = id;
         this.data_emitere = data_emitere;
         this.numar_card = numar_card;
@@ -28,8 +32,8 @@ public class CardEntity {
         this.valuta = valuta;
         this.CVV = CVV;
         this.data_expirare = data_expirare;
-        this.nume = nume;
-        this.prenume = prenume;
+        // this.nume = nume;
+        // this.prenume = prenume;
         this.IBAN = IBAN;
         this.comision = comision;
         this.ownerId = ownerId;
@@ -53,22 +57,6 @@ public class CardEntity {
 
     public void setData_emitere(String data_emitere) {
         this.data_emitere = data_emitere;
-    }
-
-    public String getNume() {
-        return nume;
-    }
-
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
-    public String getPrenume() {
-        return prenume;
-    }
-
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
     }
 
     public String getNumar_card() {
@@ -126,8 +114,6 @@ public class CardEntity {
                 ", CVV=" + CVV +
                 ", data_expirare='" + data_expirare + '\'' +
                 ", data_emitere='" + data_emitere + '\'' +
-                ", nume='" + nume + '\'' +
-                ", prenume='" + prenume + '\'' +
                 ", numar_card='" + numar_card + '\'' +
                 ", pin=" + pin +
                 ", valuta='" + valuta + '\'' +

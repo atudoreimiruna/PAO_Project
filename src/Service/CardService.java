@@ -13,7 +13,7 @@ public class CardService {
         List<Card> result = new ArrayList<>();
 
         for( CardEntity cardEntity1: cardEntity) {
-            result.add(new Card(cardEntity1.getId(), cardEntity1.getIBAN(), cardEntity1.getNume(), cardEntity1.getPrenume()));
+            result.add(new Card(cardEntity1.getId(), cardEntity1.getIBAN()));
         }
         return result;
     }
@@ -23,7 +23,7 @@ public class CardService {
         List<Card> result = new ArrayList<>();
 
         for( CardEntity cardEntity1: cardEntity) {
-            result.add(new Card(cardEntity1.getId(), cardEntity1.getIBAN(), cardEntity1.getNume(), cardEntity1.getPrenume()));
+            result.add(new Card(cardEntity1.getId(), cardEntity1.getIBAN()));
         }
         return result;
     }
