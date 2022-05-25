@@ -9,10 +9,13 @@ public class AdresaEntity {
 
     public AdresaEntity(Integer id_adresa, Integer ownerId_adresa)
     {
-        // this.nume= nume;
         this.id_adresa = id_adresa;
         this.ownerId_adresa = ownerId_adresa;
     }
+
+    public AdresaEntity(Integer id_adresa){
+        this.id_adresa = id_adresa;
+     }
 
     public AdresaEntity()
     {
@@ -21,12 +24,10 @@ public class AdresaEntity {
 
     public AdresaEntity( Integer id_adresa, Integer cod_postal, String strada, String oras, String tara, Integer ownerId_adresa){
         this.id_adresa = id_adresa;
-        // this.nume= nume;
         this.cod_postal = cod_postal;
         this.strada = strada;
         this.oras = oras;
         this.tara = tara;
-        // this.cards = cards;
         this.ownerId_adresa = ownerId_adresa;
     }
 

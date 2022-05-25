@@ -13,6 +13,11 @@ public class Adresa {
         this.cod_postal = cod_postal;
     }
 
+    public Adresa(Integer id_adresa)
+    {
+        this.id_adresa = id_adresa;
+    }
+
     @Override
     public String toString() {
         return "Adresa{" +

@@ -11,7 +11,6 @@ public class ClientEntity {
     private int id_client;
     private String nume, prenume;
     private String telefon;
-    // private Adresa adresa;
     private List<Cont> conts = new ArrayList<>();
     private List<Adresa> adrese = new ArrayList<>();
 
@@ -21,8 +20,6 @@ public class ClientEntity {
         this.nume = nume;
         this.prenume = prenume;
         this.telefon = telefon;
-        // this.email = email;
-        // this.adresa = adresa;
     }
 
     public ClientEntity()
@@ -55,14 +52,6 @@ public class ClientEntity {
     public void setPrenume(String prenume) {
         this.prenume = prenume;
     }
-
-    // public String getEmail() {
-    //    return email;
-    //}
-
-   // public void setEmail(String email) {
-    //    this.email = email;
-    //}
 
     public String getTelefon() {
         return telefon;

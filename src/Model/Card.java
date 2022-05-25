@@ -12,7 +12,7 @@ public class Card {
     private Integer pin;
     private String valuta;
     private String IBAN;
-    private Double comision = 0.0;
+    private double comision = 0.0;
 
     static private final Set<String> Numere = new HashSet<>();
 
@@ -30,60 +30,29 @@ public class Card {
         this.comision = comision;
     }
 
-    public Card(Integer id, String IBAN){
-        this.id = id;
-        this.IBAN = IBAN;
-}
-
     public Card() {
 
     }
-    // Generare data emitere si data expirare card
-        /*
-        SimpleDateFormat formatter = new SimpleDateFormat("YYYY-MM-DD");
-        Date date = new Date(System.currentTimeMillis());;
-        this.data_emitere = formatter.format(date);
-        Calendar c = Calendar.getInstance();
-        c.setTime(date);
-        c.add(Calendar.YEAR,4);
-        this.data_expirare = formatter.format(c.getTime());
-        */
-        // Generare numar card
-        /*
-        while(Numere.contains(this.numar_card))
-            this.numar_card = this.generare_numar_card();
-        Numere.add(this.numar_card);
-        */
-        // Generate CVV
-        /*
-        this.CVV = this.generare_CVV();
-        */
 
-
-    private String generare_IBAN(int id){
-        Random rand = new Random();
-        int int_random = rand.nextInt(100);
-        int int_random2 = 1000+rand.nextInt(9000);
-        int int_random3 = 1000+rand.nextInt(9000);
-        int int_random4 = 1000+rand.nextInt(9000);
-        int int_random5 = 1000+rand.nextInt(9000);
-
-        String iban = String.format("RO" + int_random + " BREL " + int_random2 + " " + int_random3 + " " + int_random4 + " " + int_random5);
-        return iban;
+    public Card(Integer id, String IBAN){
+        this.id = id;
+        this.IBAN = IBAN;
     }
 
-    private String generare_numar_card(){
-        Random rand = new Random();
-        int int_random = 1000+rand.nextInt(9000);
-        int int_random1 = 1000+rand.nextInt(9000);
-
-        String numar = String.format("RO " + int_random + " " + int_random1);
-        return numar;
+    public void setCVV(Integer CVV) {
+        this.CVV = CVV;
     }
 
-    private int generare_CVV(){
-        var rand = new Random();
-        return 100 + rand.nextInt(899);
+    public void setComision(double comision) {
+        this.comision = comision;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getCVV() {
@@ -104,6 +73,10 @@ public class Card {
 
     public void setData_emitere(String data_emitere) {
         this.data_emitere = data_emitere;
+    }
+
+    public void setData_expirare(String data_expirare) {
+        this.data_expirare = data_expirare;
     }
 
     public String getData_expirare() {
@@ -154,6 +127,7 @@ public class Card {
     public void setComision(Double comision) {
         this.comision = comision;
     }
+
 
     @Override
     public String toString() {

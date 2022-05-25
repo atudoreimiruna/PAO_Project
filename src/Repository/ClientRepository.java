@@ -21,11 +21,12 @@ public class ClientRepository extends Repository{
     }
 
     public static void insert(ClientEntity c) {
-        String sql = "insert into client(nume,prenume) values(" +
+        String sql = "insert into client(nume,prenume,telefon) values(" +
                 addQuotMark(c.getNume()) +
-                "," + addQuotMark(c.getPrenume()) + ")";
-        int id = executeQuery(sql);
-        sql = "insert into client values(" + id + ", " + addQuotMark(c.getTelefon()) + ")";
+                "," + addQuotMark(c.getPrenume()) +
+                "," + addQuotMark(c.getTelefon()) + ")";
+        // int id = executeQuery(sql);
+        // sql = "insert into client values(" + id + ", " + addQuotMark(c.getTelefon()) + ")";
         executeQuery(sql);
     }
 

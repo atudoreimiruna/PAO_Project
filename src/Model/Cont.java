@@ -9,13 +9,8 @@ public class Cont {
     private List<Card> cards = new ArrayList<>();
 
 
-    // public abstract String extragere_suma(Integer suma);
-
-    // private List<Tranzactie> tranzactii = new ArrayList<Tranzactie>();
-
-    // private final CardFactory cardFactory = new CardFactory();
-
-    public Cont(String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type){
+    public Cont(Integer id, String swift, String valuta, Integer sold_disponibil, Integer sold_blocat, String type){
+        this.id = id;
         this.swift = swift;
         this.valuta = valuta;
         this.sold_disponibil = sold_disponibil;
@@ -28,7 +23,6 @@ public class Cont {
 
     }
     public Cont( Integer id) {
-        // this.IBAN = this.generare_IBAN(id);
         this.swift = this.generare_Swift();
         this.sold_disponibil = 0;
         this.id = id;
@@ -52,19 +46,6 @@ public class Cont {
         }
     }
 
-    /*
-    private String generare_IBAN(int id){
-        Random rand = new Random();
-        int int_random = rand.nextInt(100);
-        int int_random2 = 1000+rand.nextInt(9000);
-        int int_random3 = 1000+rand.nextInt(9000);
-        int int_random4 = 1000+rand.nextInt(9000);
-        int int_random5 = 1000+rand.nextInt(9000);
-
-        String iban = String.format("RO" + int_random + " BREL " + int_random2 + " " + int_random3 + " " + int_random4 + " " + int_random5);
-        return iban;
-    }
-    */
     private String generare_Swift(){
         Random rand = new Random();
         int int_random = 10000+rand.nextInt(90000);
@@ -73,26 +54,6 @@ public class Cont {
         String swift = String.format("BRD" + int_random);
         return swift;
     }
-
-    // public List<Tranzactie> filtrare_tranzactii(List<Tranzactie> allTransactions){
-    //     List<Tranzactie> tranzactii = new ArrayList<>();
-    //     for(var tranzactie: allTransactions)
-    //         if(tranzactie.getFromIBAN().equals(this.id))
-    //             tranzactii.add(tranzactie);
-    //     return tranzactii;
-    // }
-
-    // public int compare(Tranzactie tranzactie1, Tranzactie tranzactie2){
-    //     return tranzactie1.getData().compareTo(tranzactie2.getData());
-    // }
-
-    /*
-    public void adauga_tranzactie(Tranzactie t){
-        List<Tranzactie> tranzactii = this.getTranzactii();
-        tranzactii.add(t);
-        this.setTranzactii(tranzactii);
-    }
-    */
 
     @Override
     public String toString() {

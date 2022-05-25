@@ -6,12 +6,17 @@ public class CardCumparaturi extends Card {
     Integer suma_minima_plata;
     Integer suma_maxima_adaugare;
 
-    CardCumparaturi(Integer dobanda, Integer suma_maxima_adaugare, Integer suma_minima_plata){
-        super();
+    public CardCumparaturi(Integer id, String IBAN, Integer dobanda, Integer suma_maxima_adaugare, Integer suma_minima_plata){
+        super(id, IBAN);
         this.dobanda = dobanda;
         this.suma_maxima_adaugare =suma_maxima_adaugare;
         this.suma_minima_plata = suma_minima_plata;
     }
+
+    public CardCumparaturi() {
+
+    }
+
 
     public Integer getDobanda() {
         return dobanda;
@@ -36,4 +41,6 @@ public class CardCumparaturi extends Card {
     public void setSuma_maxima_adaugare(Integer suma_maxima_adaugare) {
         this.suma_maxima_adaugare = suma_maxima_adaugare;
     }
+
+
 }

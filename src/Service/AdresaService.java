@@ -28,4 +28,14 @@ public class AdresaService {
         }
         return result;
     }
+    public static Adresa getAdresa(int id_adresa){
+        AdresaEntity a = AdresaRepository.find(id_adresa);
+        if (a == null) {
+            return null;
+        }
+        return new Adresa(a.getId_adresa());
+    }
+    public static void modificaCodPostal(Adresa adresa){
+        AdresaRepository.updateCodPostal(adresa.getId_adresa(), adresa.getCod_postal());
+    }
 }

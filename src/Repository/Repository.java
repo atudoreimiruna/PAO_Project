@@ -18,4 +18,12 @@ public class Repository {
     protected static String addQuotMark(String s){
         return "'" + s + "'";
     }
+
+    protected static String addQuotMarkI(Integer s){
+        return "'" + s + "'";
+    }
+    protected static String addQuotMarkD(double s){
+        return "'" + s + "'";
+    }
+
 }

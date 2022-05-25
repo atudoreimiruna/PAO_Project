@@ -41,21 +41,6 @@ public class Client implements Comparable<Client> {
         this.prenume = prenume;
     }
 
-    /*
-    public void setEmail(String email) throws Exception {
-        if (!email.matches("^[a-z]+@[a-z]+\\.[a-z]{3}$")) {
-            throw new Exception("Email invalid");
-        }
-        this.email = email;
-    }
-     */
-
-    /*
-    public String getEmail() {
-        return email;
-    }
-    */
-
     public String getTelefon() {
         return telefon;
     }
@@ -71,14 +56,6 @@ public class Client implements Comparable<Client> {
     public int compareTo(Client c) {
         return Integer.compare(this.id_client, c.id_client);
     }
-
-    // public Adresa getAdresa() {
-    //     return adresa;
-    // }
-
-    //public void setAdresa(Adresa adresa) {
-    //    this.adresa = adresa;
-    // }
 
     @Override
     public String toString() {

@@ -3,13 +3,5 @@ public class Main {
 
         BankingApp bank = new BankingApp();
         bank.meniu();
-
-        // afisare toate cardurile
-        // System.out.println(TranzactieService.getAll());
-
-        // afisare toate conturile
-        //System.out.println(ContService.getAllContsForOwner(1));
-
-        // System.out.println(TranzactieService.getTranzactie(1));
     }
 }

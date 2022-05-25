@@ -6,8 +6,8 @@ public class CardCumparaturiEntity extends CardEntity{
     Integer suma_minima_plata;
     Integer suma_maxima_adaugare;
 
-    public CardCumparaturiEntity(Integer dobanda, Integer suma_maxima_adaugare, Integer suma_minima_plata){
-        super();
+    public CardCumparaturiEntity(Integer id, String IBAN, Integer dobanda, Integer suma_maxima_adaugare, Integer suma_minima_plata){
+        super(id, IBAN);
         this.dobanda = dobanda;
         this.suma_maxima_adaugare =suma_maxima_adaugare;
         this.suma_minima_plata = suma_minima_plata;

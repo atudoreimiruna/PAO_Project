@@ -18,7 +18,6 @@ public class TranzactieService {
         }
         return new Tranzactie(t.getId_tranzactie());
     }
-
     public static List<Tranzactie> getAll() {
         return TranzactieRepository
                 .getAll()

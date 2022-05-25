@@ -1,10 +1,10 @@
 package Entity;
 
 public class CardEntity {
-    private Integer id, CVV ;
+    private Integer id;
+    private Integer CVV;
     private String data_expirare;
     private String data_emitere;
-    // private String nume, prenume;
     private String numar_card;
     private Integer pin;
     private String valuta;
@@ -15,12 +15,15 @@ public class CardEntity {
     public CardEntity(Integer id, String IBAN, Integer ownerId) {
         this.id = id;
         this.IBAN = IBAN;
-        // this.nume = nume;
-        // this.prenume = prenume;
         this.ownerId = ownerId;
     }
 
-    public CardEntity() {
+    public CardEntity(Integer id, String IBAN) {
+        this.id = id;
+        this.IBAN =IBAN;
+    }
+
+    public CardEntity(){
 
     }
 
@@ -32,8 +35,6 @@ public class CardEntity {
         this.valuta = valuta;
         this.CVV = CVV;
         this.data_expirare = data_expirare;
-        // this.nume = nume;
-        // this.prenume = prenume;
         this.IBAN = IBAN;
         this.comision = comision;
         this.ownerId = ownerId;

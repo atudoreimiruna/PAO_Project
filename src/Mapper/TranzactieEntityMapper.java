@@ -13,3 +13,4 @@ public class TranzactieEntityMapper implements RowMapper<TranzactieEntity> {
         return new TranzactieEntity(id_tranzactie);
     }
 }
+
